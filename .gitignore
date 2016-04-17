@@ -4,4 +4,4 @@ lib/
 *.iml
 .settings
 .projects
-.mvn/
+.idea/
