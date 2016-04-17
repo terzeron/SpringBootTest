@@ -1,0 +1,7 @@
+target/
+lib/
+*.class
+*.iml
+.settings
+.projects
+.mvn/
