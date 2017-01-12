@@ -1,0 +1,5 @@
+<elasticsearch:node-client id="client" local="true" />
+<bean name="elasticsearchTemplate"
+      class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
+<constructor-arg name="client" ref="client" />
+</bean>
