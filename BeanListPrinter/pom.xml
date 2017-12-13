@@ -5,7 +5,7 @@
     <artifactId>BeanListPrinter</artifactId>
     <!--packaging>jar</packaging-->
     <version>1.0-SNAPSHOT</version>
-    <name>testwebapp Maven Webapp</name>
+    <name>BeanListPrinter</name>
     <url>http://maven.apache.org</url>
 
     <properties>
