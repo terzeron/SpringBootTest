@@ -9,21 +9,24 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.HashMap;
 import java.util.Map;
 
+
+// https://javabeat.net/spring-boot-external-configurations/
+
 @SpringBootApplication
-public class ExternalConfigApplication {
-    private static final Logger logger = LoggerFactory.getLogger(ExternalConfigApplication.class);
+public class Application {
+    private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     @Autowired
     private ExternalConfigComponent externalConfigComponent;
 
     public static void main(String[] args) throws Exception {
-        SpringApplication springApplication = new SpringApplication(new Object[] { ExternalConfigApplication.class });
+        SpringApplication application = new SpringApplication(Application.class);
 
         Map<String, Object> defaultProperties = new HashMap<String, Object>();
         defaultProperties.put("property.one", "Value One");
         defaultProperties.put("property.two", "Value Two");
+        application.setDefaultProperties(defaultProperties);
 
-        springApplication.setDefaultProperties(defaultProperties);
-        springApplication.run(args);
+        application.run(args);
     }
 }

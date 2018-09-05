@@ -34,6 +34,14 @@ public class ExternalConfigComponent {
 
     @PostConstruct
     public void postConstruct() {
+        System.out.println("Property One: " + propertyOne);     // springApplication.setDefaultProperties()
+        System.out.println("Property Two: " + propertyTwo);     // from resources/application.properties
+        System.out.println("Property Three: " + propertyThree); // from /config/application.properties
+        System.out.println("Property Four: " + propertyFour);   // from resources/application-local.properties by mvn spring-boot:run -Dspring.profiles.active=local
+        System.out.println("Property Five: " + propertyFive);   // from /config/application-local.properties
+        System.out.println("Property Six: " + propertySix);     // from command line arguments
+        System.out.println("Property Seven: " + propertySeven);
+
         logger.info("Property One: " + propertyOne);     // springApplication.setDefaultProperties()
         logger.info("Property Two: " + propertyTwo);     // from resources/application.properties
         logger.info("Property Three: " + propertyThree); // from /config/application.properties
