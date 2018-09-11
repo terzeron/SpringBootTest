@@ -8,6 +8,8 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.http.HttpStatus;
 
+// https://www.popit.kr/spring-boot%EC%97%90%EC%84%9C-jpa%EC%99%80-spring-data-%ED%99%9C%EC%9A%A9/
+
 @SpringBootApplication
 @EnableAutoConfiguration
 public class Main implements EmbeddedServletContainerCustomizer {
