@@ -6,9 +6,9 @@
         </encoder>
     </appender>
 
-    <logger name="net.terzeron.springboot.service" level="WARN"/>
+    <logger name="com.terzeron.springboot.service" level="WARN"/>
 
-    <logger name="net.terzeron.springboot.model" level="INFO"/>
+    <logger name="com.terzeron.springboot.model" level="INFO"/>
 
     <root level="info">
         <appender-ref ref="STDOUT"/>

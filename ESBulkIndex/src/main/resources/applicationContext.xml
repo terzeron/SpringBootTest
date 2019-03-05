@@ -6,7 +6,7 @@
 
     <context:annotation-config/>
 
-    <elasticsearch:repositories base-package="net.terzeron.springboot"/>
+    <elasticsearch:repositories base-package="com.terzeron.springboot"/>
     <!--elasticsearch:transport-client id="client" cluster-nodes="localhost:9300,someip:9300"/-->
     <elasticsearch:node-client id="client" local="true"/>
 

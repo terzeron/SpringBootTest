@@ -7,7 +7,7 @@ buildscript {
     }
 }
 
-group 'net.terzeron.springboot'
+group 'com.terzeron.springboot'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
