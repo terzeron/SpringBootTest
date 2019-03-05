@@ -10,7 +10,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <start-class>net.terzeron.springboot.Main</start-class>
+        <start-class>Main</start-class>
     </properties>
 
     <parent>
