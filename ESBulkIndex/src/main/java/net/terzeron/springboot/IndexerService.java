@@ -46,7 +46,7 @@ public class IndexerService {
             //elasticsearchTemplate.refresh(CAR_INDEX_NAME, true);
             System.out.println("bulkIndex completed.");
         } catch (Exception e) {
-            System.out.println("net.terzeron.springboot.IndexerService.bulkIndex e;" + e.getMessage());
+            System.out.println("IndexerService.bulkIndex e;" + e.getMessage());
             throw e;
         }
         return -1;
