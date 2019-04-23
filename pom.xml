@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+		 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.terzeron.springboot</groupId>
+    <artifactId>SpringBootTest</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.9.RELEASE</version>
+    </parent>
+
+    <!-- 빌드 방법
+        Build > Build Artifacts 메뉴에서 All Artifacts나 개별 jar를 골라서 Build 실행 -->
+    <!-- 실행 방법
+        out 디렉토리에 jar들이 만들어짐 -->
+    <modules>
+        <module>ActuatorTest</module>
+        <module>ActuatorTest2</module>
+        <module>BeanListPrinter</module>
+        <module>ConfigurationTest</module>
+        <module>DataTest1</module>
+        <module>ESBulkIndex</module>
+        <module>EmployeeWebService</module>
+        <module>FileUploadTest</module>
+        <module>HypermediaWebTest</module>
+        <module>JDBCTest</module>
+        <!--module>JPATest</module-->
+        <!--module>KafkaTest</module-->
+        <module>LDAPAuthTest</module>
+        <module>LoggingTest</module>
+        <module>MongoDBTest</module>
+        <module>MySQLTest</module>
+        <module>OAuth2Test</module>
+        <module>ReadingList</module>
+        <module>RedisTest</module>
+        <module>RestTemplateClient</module>
+        <module>RestfulWebService</module>
+        <module>SecurityTest</module>
+        <module>SimpleController1</module>
+        <module>SimpleController2</module>
+        <module>StateMachineTest</module>
+        <module>TaskScheduling</module>
+        <module>ThymeleafTest</module>
+    </modules>
+</project>
