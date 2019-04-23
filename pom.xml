@@ -29,8 +29,8 @@
         <module>FileUploadTest</module>
         <module>HypermediaWebTest</module>
         <module>JDBCTest</module>
-        <!--module>JPATest</module-->
-        <!--module>KafkaTest</module-->
+        <module>JPATest</module>
+        <module>KafkaTest</module>
         <module>LDAPAuthTest</module>
         <module>LoggingTest</module>
         <module>MongoDBTest</module>
