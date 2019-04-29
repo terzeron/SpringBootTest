@@ -16,8 +16,7 @@ public class Main {
         TestService service = new TestService();
         service.service();
 
-        SpringApplication springApplication = new SpringApplication(new Object[] { Main.class });
-        springApplication.run(args);
+        SpringApplication.run(Main.class, args);
 
         logger.error("message logged at ERROR level");
         logger.warn("message logged at WARN level");

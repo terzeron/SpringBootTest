@@ -47,12 +47,12 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book findOne(long id) {
         System.out.println("Cached Pages");
-        return bookRepository.findOne(id);
+        return bookRepository.findById(id).get();
     }
 
     @Override
     public void delete(long id) {
-        bookRepository.delete(id);
+        bookRepository.deleteById(id);
     }
 
 

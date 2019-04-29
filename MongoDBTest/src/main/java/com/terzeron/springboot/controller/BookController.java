@@ -30,7 +30,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{bookId}")
     public Book getBookDetails(@PathVariable("bookId") String bookId) {
-        return bookRepository.findOne(bookId);
+        return bookRepository.findById(bookId).get();
     }
 
     @RequestMapping(method = RequestMethod.PUT, value="/{bookId}")
@@ -50,7 +50,7 @@ public class BookController {
 
     @RequestMapping(method = RequestMethod.DELETE, value="/{bookId}")
     public Map<String, String> deleteBook(@PathVariable("bookId") String bookId){
-        bookRepository.delete(bookId);
+        bookRepository.deleteById(bookId);
         Map<String, String> response = new HashMap<String, String>();
         response.put("message", "Book deleted successfully");
 

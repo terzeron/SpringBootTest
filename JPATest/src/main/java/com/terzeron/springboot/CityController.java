@@ -40,6 +40,6 @@ public class CityController {
 
     @RequestMapping(value="/city/{cityId}", method= RequestMethod.GET)
     public City getCity(@PathVariable Long cityId) {
-        return repository.findOne(cityId);
+        return repository.findById(cityId).get();
     }
 }
