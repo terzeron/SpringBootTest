@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 //@EnableAutoConfiguration
-public class Main {
+public class JPATest {
     public static void main(String[] args) {
         System.setProperty("spring.h2.console.enabled", "true");
-        SpringApplication.run(Main.class);
+        SpringApplication.run(JPATest.class);
     }
 }

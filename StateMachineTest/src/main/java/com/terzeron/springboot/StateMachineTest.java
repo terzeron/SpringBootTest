@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.statemachine.StateMachine;
 
 @SpringBootApplication
-public class Application implements CommandLineRunner {
+public class StateMachineTest implements CommandLineRunner {
     @Autowired
     private StateMachine<States, Events> stateMachine;
 
@@ -18,6 +18,6 @@ public class Application implements CommandLineRunner {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(StateMachineTest.class, args);
     }
 }

@@ -18,8 +18,8 @@ import java.util.concurrent.CountDownLatch;
  * Created by terzeron on 2017. 1. 12..
  */
 @SpringBootApplication
-public class Application {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
+public class RedisTest {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RedisTest.class);
 
     @Bean
     RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
@@ -51,7 +51,7 @@ public class Application {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ApplicationContext ctx = SpringApplication.run(Application.class, args);
+        ApplicationContext ctx = SpringApplication.run(RedisTest.class, args);
         StringRedisTemplate template = ctx.getBean(StringRedisTemplate.class);
         CountDownLatch latch = ctx.getBean(CountDownLatch.class);
 

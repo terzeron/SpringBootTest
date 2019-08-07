@@ -11,8 +11,8 @@ import org.springframework.web.client.RestTemplate;
 /**
  * Created by terzeron on 2017. 1. 9..
  */
-public class Application {
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+public class RestTemplateClient {
+    private static final Logger log = LoggerFactory.getLogger(RestTemplateClient.class);
 
 /*
     public static void main(String[] args) {
@@ -27,7 +27,7 @@ public class Application {
 */
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(RestTemplateClient.class, args);
     }
 
     // Bean으로 선언했기 때문에 RestTemplateBuilder가 자동으로 주입되어 사용됨

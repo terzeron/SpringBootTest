@@ -4,9 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DataTest1Application {
+public class R2DBCTest {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DataTest1Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(R2DBCTest.class, args);
+    }
+
+
 }

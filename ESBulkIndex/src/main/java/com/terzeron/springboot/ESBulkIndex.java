@@ -10,8 +10,8 @@ import org.springframework.context.annotation.ImportResource;
 @Configuration
 @SpringBootApplication
 @ImportResource("classpath:applicationContext.xml")
-public class App {
+public class ESBulkIndex {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        SpringApplication.run(ESBulkIndex.class, args);
     }
 }

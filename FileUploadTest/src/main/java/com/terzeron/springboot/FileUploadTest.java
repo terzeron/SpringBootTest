@@ -9,10 +9,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
-public class Application {
+public class FileUploadTest {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(FileUploadTest.class, args);
     }
 
     //@Bean

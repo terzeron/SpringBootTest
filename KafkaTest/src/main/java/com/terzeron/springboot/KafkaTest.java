@@ -9,9 +9,9 @@ import org.springframework.kafka.support.KafkaHeaders;
 import org.springframework.messaging.support.MessageBuilder;
 
 @SpringBootApplication
-public class Kafka21Application {
+public class KafkaTest {
     public static void main(String[] args) {
-        SpringApplication.run(Kafka21Application.class, args).close();
+        SpringApplication.run(KafkaTest.class, args).close();
     }
 
     @Bean

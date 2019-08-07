@@ -9,9 +9,9 @@ import org.springframework.context.ApplicationContext;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class Application {
+public class SimpleController2 {
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(Application.class, args);
+        ApplicationContext ctx = SpringApplication.run(SimpleController2.class, args);
 
         System.out.println("Let's inspect the beans provided by Spring Boot:");
 

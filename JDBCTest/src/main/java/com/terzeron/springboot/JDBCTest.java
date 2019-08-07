@@ -16,13 +16,13 @@ import java.util.stream.Collectors;
  * Created by terzeron on 2017. 1. 9..
  */
 @SpringBootApplication
-public class Application implements CommandLineRunner {
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+public class JDBCTest implements CommandLineRunner {
+    private static final Logger log = LoggerFactory.getLogger(JDBCTest.class);
     @Autowired
     JdbcTemplate jdbcTemplate;
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(JDBCTest.class, args);
     }
 
     @Override

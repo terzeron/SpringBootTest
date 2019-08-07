@@ -9,8 +9,8 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  */
 @SpringBootApplication
 @EnableScheduling // 백그라운드 태스크 실행자가 생성됨
-public class Application {
+public class TaskScheduling {
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(TaskScheduling.class, args);
     }
 }

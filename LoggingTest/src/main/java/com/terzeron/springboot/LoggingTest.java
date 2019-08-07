@@ -8,15 +8,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Main {
-    public static final Logger logger = LoggerFactory.getLogger(Main.class);
+public class LoggingTest {
+    public static final Logger logger = LoggerFactory.getLogger(LoggingTest.class);
 
     public static void main(String[] args) {
         TestModel model = new TestModel();
         TestService service = new TestService();
         service.service();
 
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(LoggingTest.class, args);
 
         logger.error("message logged at ERROR level");
         logger.warn("message logged at WARN level");

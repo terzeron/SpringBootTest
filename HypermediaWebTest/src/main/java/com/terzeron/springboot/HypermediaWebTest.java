@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created by terzeron on 2017. 3. 29..
  */
 @SpringBootApplication
-public class Application {
+public class HypermediaWebTest {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(HypermediaWebTest.class, args);
     }
 
     // http://localhost:8080/greeting

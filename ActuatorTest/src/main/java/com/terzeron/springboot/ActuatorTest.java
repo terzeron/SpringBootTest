@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created by terzeron on 2017. 1. 13..
  */
 @SpringBootApplication
-public class Main {
+public class ActuatorTest {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(ActuatorTest.class, args);
     }
 
     // http://www.baeldung.com/spring-boot-actuators

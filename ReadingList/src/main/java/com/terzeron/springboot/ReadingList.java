@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Main {
+public class ReadingList {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ReadingList.class, args);
 
-
+		// http://localhost:8000/bob/
+	}
 }

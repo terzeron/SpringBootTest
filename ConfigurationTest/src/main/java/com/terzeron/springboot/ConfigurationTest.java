@@ -13,14 +13,14 @@ import java.util.Map;
 // https://javabeat.net/spring-boot-external-configurations/
 
 @SpringBootApplication
-public class Application {
-    private static final Logger logger = LoggerFactory.getLogger(Application.class);
+public class ConfigurationTest {
+    private static final Logger logger = LoggerFactory.getLogger(ConfigurationTest.class);
 
     @Autowired
     private ExternalConfigComponent externalConfigComponent;
 
     public static void main(String[] args) throws Exception {
-        SpringApplication application = new SpringApplication(Application.class);
+        SpringApplication application = new SpringApplication(ConfigurationTest.class);
 
         Map<String, Object> defaultProperties = new HashMap<String, Object>();
         defaultProperties.put("property.one", "Value One");

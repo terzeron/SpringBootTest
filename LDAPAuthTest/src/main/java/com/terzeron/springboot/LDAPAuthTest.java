@@ -3,12 +3,12 @@ package com.terzeron.springboot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * Created by terzeron on 2017. 1. 12..
+ */
 @SpringBootApplication
-public class SpringBootTest3Application {
-
+public class LDAPAuthTest {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootTest3Application.class, args);
-
-        // http://localhost:8080/
+        SpringApplication.run(LDAPAuthTest.class, args);
     }
 }

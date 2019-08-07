@@ -11,9 +11,9 @@ import org.springframework.context.annotation.Bean;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class Application {
+public class BeanListPrinter {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(BeanListPrinter.class, args);
     }
 
     @Bean
