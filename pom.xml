@@ -121,6 +121,7 @@
         <module>MySQLTest</module>
         <module>OAuth2Test</module>
         <module>ReadingList</module>
+        <module>R2DBCTest</module>
         <module>RedisTest</module>
         <module>RestTemplateClient</module>
         <module>RestfulWebService</module>
