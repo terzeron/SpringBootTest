@@ -2,6 +2,7 @@ package com.terzeron.springboot.controller;
 
 import com.terzeron.springboot.model.Book;
 import com.terzeron.springboot.repository.BookRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -12,8 +13,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/book")
 public class BookController {
+    @Autowired
     private BookRepository bookRepository;
 
+    @RequestMapping(method = RequestMethod.POST)
     public Map<String, Object> createBook(@RequestBody Map<String, Object> bookMap) {
         Book book = new Book(
                 bookMap.get("name").toString(),
