@@ -5,5 +5,5 @@ spring:
         registration:
           facebook:
             client-id: 831689377015390
-            client-secret: *****
+            client-secret: password
             scope: user_posts

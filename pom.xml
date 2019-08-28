@@ -24,23 +24,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-logging</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -48,11 +31,10 @@
             <version>1.18.6</version>
             <optional>true</optional>
         </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -115,15 +97,13 @@
         <module>FileUploadTest</module>
         <module>HypermediaWebTest</module>
         <module>JDBCTest</module>
-        <module>JPATest</module>
+        <module>JPATest2</module>
         <module>KafkaTest</module>
         <module>LDAPAuthTest</module>
         <module>LoggingTest</module>
         <module>MongoDBTest</module>
         <module>MySQLTest</module>
-        <module>OAuth2Test</module>
         <module>ReadingList</module>
-        <module>R2DBCTest</module>
         <module>RedisTest</module>
         <module>RestTemplateClient</module>
         <module>RestfulWebService</module>
@@ -133,7 +113,10 @@
         <module>StateMachineTest</module>
         <module>TaskScheduling</module>
         <module>ThymeleafTest</module>
-        <module>CircuitBreakerTest</module>
         <module>PropertyTest</module>
+        <module>SimpleWebApplication</module>
+        <module>JPATest</module>
+        <module>R2DBCTest</module>
+        <module>OAuth2Test</module>
     </modules>
 </project>
