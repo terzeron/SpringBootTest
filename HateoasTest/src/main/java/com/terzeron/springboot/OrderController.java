@@ -22,7 +22,7 @@ public class OrderController {
     private final OrderResourceAssembler assembler;
 
     @GetMapping("/orders")
-    Resources<Resource<Order>> all() {
+    public Resources<Resource<Order>> all() {
         List<Resource<Order>> orders = orderRepository.findAll().stream()
                 .map(assembler::toResource)
                 .collect(Collectors.toList());
@@ -31,12 +31,12 @@ public class OrderController {
     }
 
     @GetMapping("/orders/{id}")
-    Resource<Order> one(@PathVariable Long id) {
+    public Resource<Order> one(@PathVariable Long id) {
         return assembler.toResource(orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id)));
     }
 
     @PostMapping("/orders")
-    ResponseEntity<Resource<Order>> newOrder(@RequestBody Order order) {
+    public ResponseEntity<Resource<Order>> newOrder(@RequestBody Order order) {
         order.setStatus(Status.IN_PROGRESS);
         Order newOrder = orderRepository.save(order);
 
@@ -45,7 +45,7 @@ public class OrderController {
     }
 
     @DeleteMapping("/orders/{id}/cancel")
-    ResponseEntity<ResourceSupport> cancel(@PathVariable Long id) {
+    public ResponseEntity<ResourceSupport> cancel(@PathVariable Long id) {
         Order order = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
         if (order.getStatus() == Status.IN_PROGRESS) {
             order.setStatus(Status.CANCELLED);
@@ -58,7 +58,7 @@ public class OrderController {
     }
 
     @PutMapping("/orders/{id}/complete")
-    ResponseEntity<ResourceSupport> complete(@PathVariable Long id) {
+    public ResponseEntity<ResourceSupport> complete(@PathVariable Long id) {
         Order order = orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException(id));
         if (order.getStatus() == Status.IN_PROGRESS) {
             order.setStatus(Status.COMPLETED);

@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "CUSTOMER_ORDER")
-public class Order {
+class Order {
     @Id
     @GeneratedValue
     private Long id;

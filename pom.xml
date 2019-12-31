@@ -118,5 +118,6 @@
         <module>JPATest</module>
         <module>R2DBCTest</module>
         <module>OAuth2Test</module>
+        <module>HateoasTest</module>
     </modules>
 </project>
