@@ -11,7 +11,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <!--version>2.1.4.RELEASE</version-->
+        <version>2.3.1.RELEASE</version>
     </parent>
 
     <properties>
@@ -119,5 +120,6 @@
         <module>R2DBCTest</module>
         <module>OAuth2Test</module>
         <module>HateoasTest</module>
+        <module>KafkaStreamTest</module>
     </modules>
 </project>
