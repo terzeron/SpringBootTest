@@ -9,7 +9,6 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Component
 public class EmployeeResourceAssembler implements ResourceAssembler<Employee, Resource<Employee>> {
-    @Override
     public Resource<Employee> toResource(Employee employee) {
         return new Resource<>(employee,
                 linkTo(methodOn(EmployeeController.class).one(employee.getId())).withSelfRel(),
