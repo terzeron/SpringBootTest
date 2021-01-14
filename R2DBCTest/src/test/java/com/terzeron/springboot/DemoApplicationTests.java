@@ -1,9 +1,10 @@
 package com.terzeron.springboot;
 
+import io.r2dbc.spi.ConnectionFactories;
+import io.r2dbc.spi.ConnectionFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,20 +21,19 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = InfrastructureConfiguration.class)
 public class DemoApplicationTests {
-    @Autowired
     DatabaseClient database;
-
-    @Autowired
     CoffeeRepository coffeeRepository;
 
     @Before
     public void setUp() {
         Hooks.onOperatorDebug();
+        ConnectionFactory connectionFactory = ConnectionFactories.get("r2dbc:h2:mem///test?options=DB_CLOSE_DELAY=-1;" +
+                "DB_CLOSE_ON_EXIT=FALSE");
+        database = DatabaseClient.create(connectionFactory);
         List<String> statements = Arrays.asList(//
                 "DROP TABLE IF EXISTS coffee;",
                 "CREATE TABLE coffee (id int, name varchar(255), price int);");
-        statements.forEach(it -> database.execute() //
-                .sql(it) //
+        statements.forEach(it -> database.execute(it) //
                 .fetch() //
                 .rowsUpdated() //
                 .as(StepVerifier::create) //
