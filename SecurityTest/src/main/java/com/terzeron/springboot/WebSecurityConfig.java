@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
 
                 .formLogin()
-                // 로그인페이지의 경로 지정​
+                // 로그인페이지의 경로 지정
                 .loginPage("/login")
                 .permitAll()
 
