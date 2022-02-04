@@ -1,11 +1,17 @@
 package com.terzeron.springboot;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.io.IOException;
+
 // https://www.infoq.com/articles/reactor-by-example/
 // https://developpaper.com/spring-5-responsive-programming/
+// curl localhost:8080/hello/mike
+// curl localhost:8080/helloDelay/mike
+// curl -X POST -H "Content-Type: application/json" -d '{"firstName": "Paul","lastName": "tEsT"}' localhost:8080/heyMister
 
 @RestController
 public class ExampleController {
@@ -27,13 +33,17 @@ public class ExampleController {
     }
 
     @PostMapping("heyMister")
-    public Flux<String> hey(@RequestBody Mono<Sir> body) {
+    public Flux<String> hey(@RequestBody String body) throws IOException {
+        // 원문의 예제는 webflux 이전의 web-reactive 의존성에 기반한 것이어서
+        // deserialization이 필요함
+        // 아래 코드는 anti-pattern이니 webflux의 ServerRequest를 사용할 것
+        ObjectMapper mapper = new ObjectMapper();
+        Sir sir = mapper.readValue(body, Sir.class);
         return Mono.just("Hey mister ")
-                .concatWith(body
-                        // Flux를 반환해야 하므로 flatMapMany를 사용해야 함
-                        .flatMapMany(sir -> Flux.fromArray(sir.getLastName().split("")))
-                        .map(String::toUpperCase)
-                        .take(1)
-                ).concatWith(Mono.just(". how are you?"));
+                .concatWith(
+                        Flux.fromArray(sir.getLastName().split(""))
+                                .map(String::toUpperCase)
+                                .take(1))
+                .concatWith(Mono.just(". how are you?"));
     }
 }
