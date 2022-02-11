@@ -25,4 +25,9 @@ public class Dish {
         deliveredDish.delivered = true;
         return deliveredDish;
     }
+
+    @Override
+    public String toString() {
+        return "Dish{" + "description='" + description + "'" + ", delivered=" + delivered + "}";
+    }
 }
