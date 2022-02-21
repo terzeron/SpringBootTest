@@ -89,5 +89,6 @@
         <module>LDAPTest</module>
         <module>WebFluxTest</module>
         <module>SimpleFluxTest</module>
+        <module>ReactiveMongoDataStore</module>
     </modules>
 </project>
