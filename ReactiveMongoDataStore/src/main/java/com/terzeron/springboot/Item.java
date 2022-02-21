@@ -11,10 +11,17 @@ import org.springframework.data.annotation.Id;
 public class Item {
     private @Id String id;
     private String name;
+    private String description;
     private double price;
 
     Item(String name, double price) {
         this.name = name;
+        this.price = price;
+    }
+
+    Item(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
         this.price = price;
     }
 }
