@@ -90,5 +90,6 @@
         <module>WebFluxTest</module>
         <module>SimpleFluxTest</module>
         <module>ReactiveMongoDataStore</module>
+        <module>MongoDBReactiveTest</module>
     </modules>
 </project>
