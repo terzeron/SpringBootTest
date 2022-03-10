@@ -6,13 +6,13 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class ReactiveMongoDataStore {
+public class MongoDBReactiveTest1 {
     public static void main(String[] args) {
         //Hooks.onOperatorDebug();
         //BlockHound.builder()
                 //.allowBlockingCallsInside(TemplateEngine.class.getCanonicalName(),"process")
                 //.install();
 
-        SpringApplication.run(ReactiveMongoDataStore.class, args);
+        SpringApplication.run(MongoDBReactiveTest1.class, args);
     }
 }
