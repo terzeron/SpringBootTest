@@ -9,25 +9,24 @@ import reactor.core.publisher.Mono;
 @Controller
 @AllArgsConstructor
 public class HomeController {
-    private ItemRepository itemRepository;
-    private CartRepository cartRepository;
-    private CartService cartService;
     private InventoryService inventoryService;
 
     @GetMapping
     Mono<Rendering> home() {
         return Mono.just(Rendering.view("home.html")
-                .modelAttribute("items", this.itemRepository.findAll())
-                .modelAttribute("cart", this.cartRepository.findById("My Cart").defaultIfEmpty(new Cart("My Cart")))
+                .modelAttribute("items", this.inventoryService.getInventory())
+                .modelAttribute("cart", this.inventoryService.getCart("My Cart")
+                        .defaultIfEmpty(new Cart("My Cart")))
                 .build());
     }
 
     @PostMapping("/add/{id}")
     Mono<String> addToCart(@PathVariable String id) {
-        return this.cartService.addToCart("My Cart", id)
+        return this.inventoryService.addItemToCart("My Cart", id)
                 .thenReturn("redirect:/");
     }
 
+    /*
     @GetMapping("/search1")
     Mono<Rendering> search1(@RequestParam(required = false) String name,
                             @RequestParam(required = false) String description,
@@ -37,7 +36,9 @@ public class HomeController {
                 .modelAttribute("cart", this.cartRepository.findById("My Cart").defaultIfEmpty(new Cart("My Cart")))
                 .build());
     }
+     */
 
+    /*
     @GetMapping("/search")
     Mono<Rendering> search(@RequestParam(required = false) String name,
                            @RequestParam(required = false) String description,
@@ -49,4 +50,5 @@ public class HomeController {
                         "Cart")))
                 .build());
     }
+     */
 }

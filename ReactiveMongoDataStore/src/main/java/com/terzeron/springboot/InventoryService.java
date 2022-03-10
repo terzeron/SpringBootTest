@@ -1,45 +1,98 @@
 package com.terzeron.springboot;
 
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.ExampleMatcher.StringMatcher;
-import org.springframework.data.mongodb.core.ReactiveFluentMongoOperations;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-import static org.springframework.data.mongodb.core.query.Criteria.byExample;
-import static org.springframework.data.mongodb.core.query.Query.query;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
 public class InventoryService {
-    private ItemRepository repository;
+    private ItemRepository itemRepository;
+    private CartRepository cartRepository;
     //private ItemByExampleRepository exampleRepository;
-    private ReactiveFluentMongoOperations fluentOperations;
+    //private ReactiveFluentMongoOperations fluentOperations;
 
-    Flux<Item> getItems() {
-        return Flux.empty();
+    public Mono<Cart> getCart(String cartId) {
+        return this.cartRepository.findById(cartId);
+    }
+
+    public Flux<Item> getInventory() {
+        return this.itemRepository.findAll();
+    }
+
+    Mono<Item> saveItem(Item newItem) {
+        return this.itemRepository.save(newItem);
+    }
+
+    Mono<Void> deleteItem(String id) {
+        return this.itemRepository.deleteById(id);
+    }
+
+    Mono<Cart> addItemToCart(String cartId, String itemId) {
+        return this.cartRepository.findById(cartId)
+                .defaultIfEmpty(new Cart(cartId)) //
+                .flatMap(cart -> cart.getCartItems().stream()
+                        .filter(cartItem -> cartItem.getItem().getId().equals(itemId))
+                        .findAny() //
+                        .map(cartItem -> {
+                            cartItem.increment();
+                            return Mono.just(cart);
+                        }) //
+                        .orElseGet(() -> {
+                            return this.itemRepository.findById(itemId) //
+                                    .map(item -> new CartItem(item)) //
+                                    .map(cartItem -> {
+                                        cart.getCartItems().add(cartItem);
+                                        return cart;
+                                    });
+                        }))
+                .flatMap(cart -> this.cartRepository.save(cart));
+    }
+
+    Mono<Cart> removeOneFromCart(String cartId, String itemId) {
+        return this.cartRepository.findById(cartId)
+                .defaultIfEmpty(new Cart(cartId))
+                .flatMap(cart -> cart.getCartItems().stream()
+                        .filter(cartItem -> cartItem.getItem().getId().equals(itemId))
+                        .findAny()
+                        .map(cartItem -> {
+                            cartItem.decrement();
+                            return Mono.just(cart);
+                        }) //
+                        .orElse(Mono.empty()))
+                .map(cart -> new Cart(cart.getId(), cart.getCartItems().stream()
+                        .filter(cartItem -> cartItem.getQuantity() > 0)
+                        .collect(Collectors.toList())))
+                .flatMap(cart -> this.cartRepository.save(cart));
     }
 
     Flux<Item> search(String partialName, String partialDescription, boolean useAnd) {
         if (partialName != null) {
             if (partialDescription != null) {
                 if (useAnd) {
-                    return repository.findByNameContainingAndDescriptionContainingAllIgnoreCase(partialName, partialDescription);
+                    return itemRepository.findByNameContainingAndDescriptionContainingAllIgnoreCase(partialName, partialDescription);
                 } else {
-                    return repository.findByNameContainingOrDescriptionContainingAllIgnoreCase(partialName, partialDescription);
+                    return itemRepository.findByNameContainingOrDescriptionContainingAllIgnoreCase(partialName, partialDescription);
                 }
             }
         } else {
             if (partialDescription != null) {
-                return repository.findByDescriptionContainingIgnoreCase(partialDescription);
+                return itemRepository.findByDescriptionContainingIgnoreCase(partialDescription);
             } else {
-                return repository.findAll();
+                return itemRepository.findAll();
             }
         }
         return Flux.empty();
     }
+
+    /*
+    Flux<Item> getItems() {
+        return Flux.empty();
+    }
+     */
 
     /*
     Flux<Item> searchByExample(String name, String description, boolean useAnd) {
@@ -54,6 +107,7 @@ public class InventoryService {
     }
     */
 
+    /*
     Flux<Item> searchByFluentExample(String name, String description, boolean useAnd) {
         Item item = new Item(name, description, 0.0);
 
@@ -66,4 +120,5 @@ public class InventoryService {
                 .matching(query(byExample(Example.of(item, matcher))))
                 .all();
     }
+     */
 }
