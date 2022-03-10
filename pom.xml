@@ -40,6 +40,10 @@
             <version>1.18.22</version>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -89,7 +93,8 @@
         <module>LDAPTest</module>
         <module>WebFluxTest</module>
         <module>SimpleFluxTest</module>
-        <module>ReactiveMongoDataStore</module>
         <module>MongoDBReactiveTest</module>
+        <module>MongoDBReactiveTest1</module>
+        <module>MongoDBReactiveTest2</module>
     </modules>
 </project>

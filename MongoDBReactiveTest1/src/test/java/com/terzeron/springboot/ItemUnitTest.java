@@ -1,9 +1,8 @@
-package java.com.terzeron.springboot;
+package com.terzeron.springboot;
 
-import com.terzeron.springboot.Item;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
 public class ItemUnitTest {
     @Test

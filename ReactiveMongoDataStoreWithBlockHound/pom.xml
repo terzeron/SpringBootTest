@@ -60,12 +60,12 @@
             <version>1.18.22</version>
             <optional>true</optional>
         </dependency>
-        <!--dependency>
+        <dependency>
             <groupId>io.projectreactor.tools</groupId>
             <artifactId>blockhound-junit-platform</artifactId>
             <version>1.0.3.RELEASE</version>
             <scope>test</scope>
-        </dependency-->
+        </dependency>
     </dependencies>
 
     <build>

@@ -1,11 +1,11 @@
-package java.com.terzeron.springboot;
+package com.terzeron.springboot;
 
-import com.terzeron.springboot.Item;
-import com.terzeron.springboot.ItemRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import reactor.test.StepVerifier;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 @DataMongoTest
 public class MongoDbSliceTest {
