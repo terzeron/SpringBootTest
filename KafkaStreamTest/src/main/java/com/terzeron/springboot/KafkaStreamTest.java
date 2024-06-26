@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.function.Function;
@@ -33,7 +34,7 @@ public class KafkaStreamTest {
                 // group by key
                 .groupByKey(Grouped.with(Serdes.String(), Serdes.String()))
                 // time window (1min)
-                .windowedBy(TimeWindows.of(60000))
+                .windowedBy(TimeWindows.of(Duration.ofMillis(60000)))
                 // count and store into "wordcount-store"
                 .count(Materialized.as("wordcount-store"))
                 // convert to result KStream
