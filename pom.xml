@@ -106,8 +106,5 @@
         <module>LDAPTest</module>
         <module>WebFluxTest</module>
         <module>SimpleFluxTest</module>
-        <module>MongoDBReactiveTest</module>
-        <module>MongoDBReactiveTest1</module>
-        <module>MongoDBReactiveTest2</module>
     </modules>
 </project>
